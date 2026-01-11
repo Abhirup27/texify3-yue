@@ -196,8 +196,20 @@ button.copy-button {
 }
 
 .content p {
-  text-align: left;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  word-spacing: 0.05em;
 }
+/* Break justification inheritance */
+.content .katex-display {
+  display: block !important;
+  width: max-content !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  // outline: 2px solid var(--fg3);
+}
+
 
 // .content
 .content strong.chinese {
@@ -214,7 +226,7 @@ button.copy-button {
     counter-reset: section-h3;
     &:before {
       counter-increment: section-h2;
-      content: counter(section-h2) " ";
+      content:"";
     }
   }
   h3 {
@@ -287,3 +299,12 @@ button.copy-button {
     }
   }
 }
+
+.content h3::before,
+.content h4::before,
+.content h5::before,
+.content h6::before {
+  margin-right: 0.25em;
+  color: var(--fg3);
+}
+
